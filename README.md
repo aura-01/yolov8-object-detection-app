@@ -31,6 +31,16 @@ This is a basic object detection application built using **YOLOv8**, **Streamlit
 | Backend        | Python, OpenCV, PIL                          |
 
 ---
+### MongoDB Document Schema
+
+**Collection:** `detections`
+
+Each document contains:
+- `filename`: `string` – name of the saved image
+- `timestamp`: `datetime` – time when detection was made
+- `detections`: `array[string]` – list of detected classes
+- `image`: `binary` – image data in JPEG format
+---
 
 ## 📦 Installation
 
@@ -88,6 +98,7 @@ streamlit run app.py
 
 <img width="1919" height="871" alt="Screenshot 2025-08-05 221910" src="https://github.com/user-attachments/assets/5896ba72-c7bc-4834-a07f-8af5f6b1355c" />
 
+<img width="1919" height="953" alt="Screenshot 2025-08-05 222249" src="https://github.com/user-attachments/assets/20348c2c-47ad-4d54-b126-1fc35ce1541e" />
 
 <img width="1918" height="965" alt="Screenshot 2025-08-05 214749" src="https://github.com/user-attachments/assets/882452e0-65f9-4fc1-9bb6-a825c0e40894" />
 
@@ -129,12 +140,4 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 
 
-### MongoDB Document Schema
 
-**Collection:** `detections`
-
-Each document contains:
-- `filename`: `string` – name of the saved image
-- `timestamp`: `datetime` – time when detection was made
-- `detections`: `array[string]` – list of detected classes
-- `image`: `binary` – image data in JPEG format
