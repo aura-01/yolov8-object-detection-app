@@ -13,7 +13,6 @@ st.set_page_config(page_title="Object Detection App", layout="wide")
 
 st.markdown("""
     <style>
-        /* Entire App Background: vibrant gradient */
         .stApp {
             background: linear-gradient(135deg, #dfe9f3, #ffffff, #e1f5fe);
             font-family: 'Poppins', sans-serif;
@@ -84,9 +83,6 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-
-
-
 st.sidebar.markdown("## Select Input Type")
 input_type = st.sidebar.radio("", ["Image", "Video", "Webcam"], index=0)
 
@@ -99,7 +95,7 @@ st.markdown("---")
 
 def process_and_display(frame, save=False):
     annotated_img, detected_classes = detect_objects(frame)
-    st.image(annotated_img, channels="BGR", caption=" Detected Output", use_column_width=True)
+    st.image(annotated_img, channels="BGR", caption=" Detected Output", use_container_width=True)
     
     if save:
         timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -139,7 +135,7 @@ elif input_type == "Video":
             if not ret:
                 break
             annotated_frame, _ = detect_objects(frame)
-            stframe.image(annotated_frame, channels="BGR", use_column_width=True)
+            stframe.image(annotated_frame, channels="BGR", use_container_width=True)
         cap.release()
         st.success("✔ Finished processing video")
 
